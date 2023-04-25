@@ -31,8 +31,14 @@
                             <td>{{ $row->jumlah_soal }}</td>
                             <td>{{ $row->keterangan }}</td>
                           <td>
-                            <a href="#" class="btn btn-danger btn-sm">delete</a>
-                            <a href="#" class="btn btn-warning btn-sm">edit</a>
+                          <form action="{{ route ('soal.delete', $row['id'])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin?')">DELETE</button>
+                        <a href="{{ route ('soal.edit', $row['id'])}}" class="btn btn-warning btn-sm">EDIT</a>
+                    </form>      
+                        
+                           
                           </td>
                         </tr>
                         @endforeach

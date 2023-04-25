@@ -34,3 +34,6 @@ Route::delete('delete-mahasiswa/{id}', [MahasiswaC::class, 'destroy'])->name('de
 Route::get('soal', [SoalController::class, 'index'])->name('soal.index');
 Route::get('soal/create', [SoalController::class, 'create'])->name('soal.create');
 Route::PUT('soal/store', [SoalController::class, 'store'])->name('soal.store');
+Route::get('soal/edit/{soal}', [SoalController::class, 'edit'])->name('soal.edit');
+Route::PUT('soal/update/{soal}', [SoalController::class, 'update'])->name('soal.update');
+Route::delete('soal/{id}', [SoalController::class, 'delete'])->name('soal.delete');

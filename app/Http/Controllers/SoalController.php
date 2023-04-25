@@ -38,5 +38,28 @@ class SoalController extends Controller
     }
 
     
+    public function delete(Soal $id)
+    {
+        $id->delete();
+        return redirect('soal');
+    }
 
+    public function edit(Soal $soal)
+    {
+        return view('soal.edit', compact('soal'));
+    }
+
+    public function update(Request $request, Soal $soal)
+    {
+        $request->validate([
+            'nama_mk' => 'required',
+            'dosen' => 'required',
+            'jumlah_soal' => 'required',
+            'keterangan' => 'required',
+        ]);
+        $soal->update($request->all());
+        return redirect(route('soal.index'));
+    }
 }
+
+
